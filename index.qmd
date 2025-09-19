@@ -1,5 +1,5 @@
 ---
-title: "Курс C++ 2025"
+title: "Курс 'Алгоритмы и структуры данных' 2025"
 image: "resources/images/profile_pic.png"
 page-navigation: false
 toc: false

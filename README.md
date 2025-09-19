@@ -1,16 +1,8 @@
 Here is the updated README.md with the description of your C++ course:
 
-## C++ Course 2025
+## Algo Course 2025
 
-This repository contains materials for the **C++ Programming Course** designed for students of the Lyceum of the National Research University Higher School of Economics (НИУ ВШЭ). The course introduces students to the fundamentals of programming in C++ and covers topics such as:
-
-- Basics of C++ syntax and structure
-- Variables, data types, and memory management
-- Control flow (loops, conditionals)
-- Functions and modular programming
-- Object-oriented programming (OOP) concepts
-- Standard Template Library (STL)
-- Advanced topics like pointers, dynamic memory allocation, and file handling
+TODO
 
 ### Course Structure
 

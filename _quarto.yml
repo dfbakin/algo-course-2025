@@ -7,9 +7,9 @@ description-meta: "Intoduction to C++ for HSE Lyceum (2025)"
 author-meta: "Denis Bakin"
 
 website:
-  title: "C++ Course"
+  title: "Algo Course"
   image: "resources/images/favicon.png"
-  description: "Website of 'Intoduction to C++' for HSE Lyceum (2025)"
+  description: "Website of 'Intoduction to algorithms and data structures' for HSE Lyceum (2025)"
 
   navbar:
     background: dark

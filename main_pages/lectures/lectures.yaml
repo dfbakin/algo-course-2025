@@ -4,3 +4,9 @@
   # material: /lectures/io_variables/notes.html
   # presentation: /lectures/io_variables/presentation.pdf
 
+- title: Основы C++. Функции
+  number: 3
+  description: Функции
+  material: /lectures/functions/notes.html
+  presentation: /lectures/functions/presentation.pdf
+
