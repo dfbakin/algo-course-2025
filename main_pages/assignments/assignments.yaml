@@ -1,0 +1,5 @@
+- title: Введение в C++
+  number: 1
+  description: Переменные, арифметика, ввод-вывод, условия
+  links:
+    - text: TBA

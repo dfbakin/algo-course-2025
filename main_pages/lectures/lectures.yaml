@@ -1,0 +1,6 @@
+- title: Основы C++
+  number: 1
+  description: Переменные, типы, ввод-вывод, арифметические операции
+  # material: /lectures/io_variables/notes.html
+  # presentation: /lectures/io_variables/presentation.pdf
+
