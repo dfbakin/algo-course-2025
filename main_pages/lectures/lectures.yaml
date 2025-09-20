@@ -1,8 +1,14 @@
 - title: Основы C++
   number: 1
-  description: Переменные, типы, ввод-вывод, арифметические операции
+  description: Переменные, ввод-вывод, арифметические операции. Условия. Циклы
   # material: /lectures/io_variables/notes.html
-  # presentation: /lectures/io_variables/presentation.pdf
+  presentation: /lectures/io_variables/algo_1.pdf
+
+- title: Основы C++
+  number: 2
+  description: Циклы. Динамические массивы
+  # material: /lectures/io_variables/notes.html
+  presentation: /lectures/io_variables/algo_vectors.pdf
 
 - title: Основы C++. Функции
   number: 3
