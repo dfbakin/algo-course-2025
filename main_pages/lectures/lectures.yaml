@@ -17,5 +17,11 @@
 - title: Сложность алгоритмов и сортировки
   number: 4
   description: Оценка сложности алгоритмов, квадратичные сортировки
-  # material: /lectures/complexity_sort_algotirhms/notes.html
+  material: /lectures/complexity_sort_algotirhms/notes.html
+  presentation: /lectures/complexity_sort_algotirhms/presentation.pdf
+
+- title: Быстрые сортировки
+  number: 5
+  description: Оптимальные сортировки на сравнениях. Сортировка подсчетом
+  material: /lectures/fast_sort/notes.html
   presentation: /lectures/complexity_sort_algotirhms/presentation.pdf
