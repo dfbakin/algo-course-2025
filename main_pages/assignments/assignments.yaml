@@ -1,5 +1,31 @@
-- title: Введение в C++
+- title: Циклы
   number: 1
-  description: Переменные, арифметика, ввод-вывод, условия
+  description: Циклы в C++. Операторы break и continue
   links:
-    - text: TBA
+    - text: Ссылка
+      href: https://informatics.msk.ru/mod/statements/view.php?id=102850#1
+      deadline: 2025-09-21T23:59:59
+
+- title: std::vector и функции
+  number: 2
+  description: Использование std::vector в C++, передача параметров в функции
+  links:
+    - text: Ссылка
+      href: https://informatics.msk.ru/mod/statements/view.php?id=103045#1
+      deadline: 2025-09-28T23:59:59
+
+- title: Сложность алгоритмов и квадратичные сортировки
+  number: 3
+  description: Оценка сложности алгоритмов. Сортировки пузырьком, выбором, вставками
+  links:
+    - text: Ссылка
+      href: https://informatics.msk.ru/mod/statements/view.php?id=103581#1
+      deadline: 2025-10-12T23:59:59
+
+- title: Быстрая сортировка. Сортировка подсчетом
+  number: 4
+  description: Быстрая сортировка (Quick Sort). Сортировка подсчетом (Counting Sort)
+  links:
+    - text: Ссылка
+      href: https://informatics.msk.ru/mod/statements/view.php?id=103582#1
+      deadline: 2025-10-12T23:59:59
