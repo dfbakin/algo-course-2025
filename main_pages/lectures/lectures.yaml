@@ -20,8 +20,8 @@
   material: /lectures/complexity_sort_algotirhms/notes.html
   presentation: /lectures/complexity_sort_algotirhms/presentation.pdf
 
-- title: Быстрые сортировки
+- title: Рекурсия. Быстрые сортировки
   number: 5
   description: Оптимальные сортировки на сравнениях. Сортировка подсчетом
-  material: /lectures/fast_sort/notes.html
-  presentation: /lectures/complexity_sort_algotirhms/presentation.pdf
+  material: /lectures/quick_sort/notes.html
+  presentation: /lectures/quick_sort/presentation.pdf
