@@ -94,9 +94,9 @@ int find(const std::vector<int>& data, int elem_to_find) {
 
 # Готовые функции C++ STL
 
-* `std::lower_bound(a.begin(), a.end(), x)` — первый элемент ≥ `x`
-* `std::upper_bound(a.begin(), a.end(), x)` — первый элемент > `x`
-* `std::binary_search(a.begin(), a.end(), x)` — проверяет, есть ли элемент `x`
+* `std::lower_bound(a.begin(), a.end(), x)` — первый элемент $\ge x$
+* `std::upper_bound(a.begin(), a.end(), x)` — первый элемент $> x$
+* `std::binary_search(a.begin(), a.end(), x)` — проверяет, есть ли элемент $x$
 
 Пример:
 
@@ -253,7 +253,7 @@ float sqrt_bin(float x) {
 }
 ```
 
-* 100 итераций ≈ точность $10^{-6}$
+* $100$ итераций $\approx$ точность $10^{-6}$
 * Останавливаемся, когда $r - l < \varepsilon$ или по числу шагов
 
 ---
@@ -299,7 +299,7 @@ double ternary_search(double l, double r) {
 
 * Работает для **унимодальных функций**
 * Находит **точку экстремума** (обычно максимум)
-* Время: $\cal{O}(\log \varepsilon)$** по требуемой точности
+* Время: $\cal{O}(\log \varepsilon)$ по требуемой точности
 
 ---
 
