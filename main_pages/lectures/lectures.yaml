@@ -29,6 +29,8 @@
 - title: Двоичный поиск
   number: 6
   description: Стандартный двоичный поиск, бинарный поиск по ответу, вещественный бинарный поиск. Поиск минимума выпуклой функции методом дихотомии
+  material: /lectures/binary_search/notes.html
+  presentation: /lectures/binary_search/presentation.pdf
 
 - title: Контрольная работа 1
   number: 7
