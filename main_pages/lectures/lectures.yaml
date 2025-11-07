@@ -33,39 +33,46 @@
   presentation: /lectures/binary_search/presentation.pdf
 
 - title: Контрольная работа 1
-  number: 7
   practice:
   - text: Практическая часть
     href: https://official.contest.yandex.ru/contest/83881/enter/
 
-- title: Сортировка событий
+- title: Указатели, ссылки, структуры
+  number: 7
+  description: Указатели, ссылки, структуры данных в C++
+  presentation: /lectures/ref_ptr_stack_queue/presentation.pdf
+
+- title: Стек, дек, очередь
   number: 8
+  description: Стек, дек, очередь, их применение
+
+- title: Сортировка событий
+  number: 9
   description: Сортировка событий, задачи на обработку событий
 
 - title: Стек, дек, очередь
-  number: 9
+  number: 10
   description: Стек, дек, очередь, их применение
 
 - title: Указатели, ссылки, структуры
-  number: 10
+  number: 11
   description: Указатели, ссылки, структуры данных в C++
 
 - title: Связные списки
-  number: 11
+  number: 12
   description: Односвязные и двусвязные списки
 
 - title: Графы. Обход в глубину
-  number: 12
+  number: 13
   description: Проверка на связность, подсчет компонент связности, проверка на цикличность, двураскрашиваемость
 
 - title: Обход в ширину
-  number: 13
+  number: 14
   description: BFS, применение обхода в ширину
 
 - title: Мосты, точки сочленения. Замыкание графа
-  number: 14
+  number: 15
   description: Поиск мостов, точек сочленения, замыкание графа
 
 - title: Контрольная работа 2
-  number: 15
   description: Контрольная работа по темам графов и структур данных
