@@ -1,5 +1,5 @@
 ---
-title: "Ссылки, указатели, работа с файлами"
+title: "Ссылки, указатели. Cтек и очередь"
 author: Denis Bakin
 format: 
     beamer:

@@ -37,7 +37,7 @@
   - text: Практическая часть
     href: https://official.contest.yandex.ru/contest/83881/enter/
 
-- title: Указатели, ссылки, структуры
+- title: Указатели, ссылки. Стек и очередь
   number: 7
   description: Указатели, ссылки, структуры данных в C++
   presentation: /lectures/ref_ptr_stack_queue/presentation.pdf
