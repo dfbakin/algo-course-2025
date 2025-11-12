@@ -42,36 +42,37 @@
   description: Указатели, ссылки, структуры данных в C++
   presentation: /lectures/ref_ptr_stack_queue/presentation.pdf
 
-- title: Стек, дек, очередь
+- title: TBA
   number: 8
-  description: Стек, дек, очередь, их применение
 
-- title: Сортировка событий
+- title: TBA
   number: 9
-  description: Сортировка событий, задачи на обработку событий
 
-- title: Стек, дек, очередь
+- title: TBA
   number: 10
-  description: Стек, дек, очередь, их применение
 
-- title: Указатели, ссылки, структуры
-  number: 11
-  description: Указатели, ссылки, структуры данных в C++
+# - title: Сортировка событий
+#   number: 9
+#   description: Сортировка событий, задачи на обработку событий
 
-- title: Связные списки
-  number: 12
-  description: Односвязные и двусвязные списки
+# - title: Указатели, ссылки, структуры
+#   number: 11
+#   description: Указатели, ссылки, структуры данных в C++
+
+# - title: Связные списки
+#   number: 12
+#   description: Односвязные и двусвязные списки
 
 - title: Графы. Обход в глубину
-  number: 13
+  number: 11
   description: Проверка на связность, подсчет компонент связности, проверка на цикличность, двураскрашиваемость
 
 - title: Обход в ширину
-  number: 14
+  number: 12
   description: BFS, применение обхода в ширину
 
 - title: Мосты, точки сочленения. Замыкание графа
-  number: 15
+  number: 13
   description: Поиск мостов, точек сочленения, замыкание графа
 
 - title: Контрольная работа 2
