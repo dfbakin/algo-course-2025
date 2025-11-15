@@ -432,7 +432,7 @@ struct DNode {
 
 ## Поиск цикла: алгоритм Флойда (tortoise & hare)
 
-[Обнаружение цикла](https://algo25.dfbakin.com/resources/images/tortoise_hare_part1.gif)
+[Обнаружение цикла](https://algo25.dfbakin.com/images/tortoise_hare_part1.gif)
 
 <!-- ```C++
 bool hasCycle(Node* head) {
@@ -456,7 +456,7 @@ bool hasCycle(Node* head) {
 
 ## Поиск начала цикла: алгоритм Флойда (tortoise & hare)
 
-[Поиск начала цикла](https://algo25.dfbakin.com/resources/images/tortoise_hare_part2.gif)
+[Поиск начала цикла](https://algo25.dfbakin.com/images/tortoise_hare_part2.gif)
 
 - работает за $O(n)$, как только мы разметили точку на цикле
 - точка встречи `pointMeeting` найдена алгоритмом Флойда
