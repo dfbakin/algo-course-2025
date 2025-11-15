@@ -42,8 +42,10 @@
   description: Указатели, ссылки, структуры данных в C++
   presentation: /lectures/ref_ptr_stack_queue/presentation.pdf
 
-- title: TBA
+- title: Динамическая память. Основы ООП. Связные списки
   number: 8
+  description: Динамическая память, основы ООП, связные списки
+  presentation: /lectures/oop_linked_lists/presentation.pdf
 
 - title: TBA
   number: 9

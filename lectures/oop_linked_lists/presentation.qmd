@@ -1,0 +1,504 @@
+---
+title: "Динамическая память. Основы ООП. Связные списки"
+author: Denis Bakin
+format: 
+    beamer:
+        pdf-engine: xelatex
+        aspectratio: 169
+        fontsize: 9pt
+        section-titles: false
+        incremental: false
+        include-in-header: 
+            - ../../files/presentation_header.tex
+        theme: metropolis
+lang: ru
+---
+
+
+
+
+# Использование памяти
+
+- На стеке: адрес возврата, сохранённые регистры, часть аргументов, локальные переменные
+- В статической памяти: глобальные и статические переменные
+- В динамической памяти (куче): объекты, выделенные с помощью `new`
+
+![Memory types](/resources/images/types_of_memory.png){width=300px}
+
+---
+
+# Динамическая память (heap)
+
+- Выделяется и освобождается во время выполнения
+
+- В C++: `new` / `delete`, `new[]` / `delete[]`
+
+- Когда использовать:
+
+  - размер неизвестен на этапе компиляции
+  - объект должен жить дольше области видимости
+  - слишком большой для стека
+
+- Ключевые правила:
+
+  - каждому `new` — один `delete`
+  - каждому `new[]` — один `delete[]`
+  - не удалять дважды, не использовать после `delete`
+  - утечки памяти — когда указатель потерян, а память не освобождена
+  - для отладки — санитайзеры (`-fsanitize=address`)
+
+---
+
+# Динамическая память (heap)
+
+```C++
+
+int main() {
+    // создаем локальные переменные a и b на стеке, именно в таком порядке
+    int a = 1;
+    int b = 2;
+
+    // указатель -- на стеке. int -- на куче
+    int* p = new int(a);
+    // использование *p
+
+    std::cout << p << std::endl; // 0x7ffeedcba098
+    std::cout << *p << std::endl; // 1
+
+    delete p; // освобождение памяти
+}
+// здесь b и a будут автоматически деаллоцированы при выходе из main
+// именно в таком порядке из-за LIFO
+
+```
+
+---
+
+# Структуры
+
+- Позволяют **объединять логически связанные данные** под одним именем
+- Можно создавать **новые типы данных**
+- Каждый объект структуры содержит **поля** (переменные)
+
+---
+
+# Пример структуры Person
+
+```C++
+#include <iostream>
+#include <vector>
+#include <string>
+
+struct Person {
+    std::string name;
+    int height;
+    int age;
+    bool expelled;
+};
+```
+
+- Каждое поле имеет собственный тип
+- Можно инициализировать по-разному
+
+---
+
+# Использование структуры Person
+
+```C++
+int main() {
+    Person person1{"Алексей", 180, 22, false};
+    Person person2{"Мария", 165, 20, true};
+    Person person3{"Иван", 175, 23, false};
+    Person person4{"Екатерина", 170, 21, false};
+    Person person5{"Петр", 185, 24, true};
+
+    std::vector<Person> people = {person1, person2, person3, person4, person5};
+
+    for (const Person& person : people) {
+        std::cout << "Имя: " << person.name << "\n"
+                  << "Рост: " << person.height << "\n"
+                  << "Возраст: " << person.age << "\n"
+                  << "Отчислен: " << (person.expelled ? "Да" : "Нет") << "\n"
+                  << "-----------------\n";
+    }
+}
+```
+
+---
+
+# Структура Point
+
+- Частный случай — хранение координат точки в 3D
+- Структура упрощает передачу данных в функции
+
+```C++
+struct Point {
+    double x = 0.0;
+    double y = 0.0;
+    double z = 0.0;
+};
+```
+
+---
+
+# Работа с точками: расстояние между двумя точками
+
+- как найти расстояние между двумя точками в пространстве?
+
+. . .
+
+```C++
+#include <cmath>
+
+double getDistance(const Point& first, const Point& second) {
+    double sq = std::pow(first.x - second.x, 2)
+              + std::pow(first.y - second.y, 2)
+              + std::pow(first.z - second.z, 2);
+    return std::sqrt(sq);
+}
+```
+
+---
+
+# Работа с точками: найти ближайшую точку
+
+- как найти ближайшую точку из набора к заданной?
+
+. . .
+
+```C++
+#include <vector>
+
+Point findClosestPoint(const Point& target, const std::vector<Point>& points) {
+    Point closest = points[0];
+    double minDist = getDistance(closest, target);
+    for (const Point& p : points) {
+        double d = getDistance(p, target);
+        if (d < minDist) {
+            minDist = d;
+            closest = p;
+        }
+    }
+    return closest;
+}
+```
+
+---
+
+# Пример использования Point
+
+```C++
+int main() {
+    Point p1(1.0, 2.0, 3.0);
+    Point p2(4.0, 5.0, 6.0);
+    Point p3(7.0, 8.0, 9.0);
+    Point p4(2.0, 2.0, 2.0);
+    std::vector<Point> points = {p1, p2, p3};
+
+    std::cout << "Расстояние: " << getDistance(p1, p2) << '\n';
+    Point closest = findClosestPoint(p4, points);
+    std::cout << "Ближайшая: (" << closest.x << ", "
+              << closest.y << ", " << closest.z << ")\n";
+}
+```
+
+---
+
+# Методы структур
+
+- Что такое метод структуры (member function):
+  - функция, объявленная внутри `struct`/`class` и имеющая доступ к полям `this`
+  - удобный способ связать поведение с данными
+- Альтернатива — свободные функции, принимающие объект в аргументах
+
+---
+
+# Методы структур
+
+```C++
+#include <iostream>
+#include <string>
+
+struct Person {
+    std::string name;
+    int age;
+};
+
+// свободная функция, принимает объект
+void printPerson(const Person& p) {
+    std::cout << p.name << " (" << p.age << ")\n";
+}
+
+int main() {
+    Person a{"Алексей", 22};
+    printPerson(a);
+}
+```
+
+* Ясно: функция отделена от типа, можно вызывать для любого `Person`
+
+---
+
+# Методы структур
+
+```C++
+#include <iostream>
+#include <string>
+
+struct Person {
+    std::string name;
+    int age;
+
+    // метод структуры
+    void print() const {
+        std::cout << name << " (" << age << ")\n";
+    }
+};
+
+int main() {
+    Person a{"Алексей", 22};
+    a.print();
+}
+```
+
+* Метод инкапсулирует поведение в типе — вызов выглядит естественнее (`a.print()`)
+
+---
+
+# Связные списки
+
+* Связный список — набор узлов, каждый содержит данные и ссылки на соседей
+* С помощью списков можно реализовать стек и очередь
+* Виды:
+
+  * односвязный (next)
+  * двусвязный (next + prev)
+  * циклический (последний $\to$ первый)
+
+![Односвязный список](/resources/images/simpleSpisok.png){width=400px}
+
+- какую информацию должен хранить каждый узел односвязного списка?
+
+---
+
+# Связные списки
+
+## Односвязный список — базовый узел
+
+```C++
+struct Node {
+    int value = 0;
+    Node* next = nullptr;
+    Node(int v) : value(v) {}
+};
+```
+
+* `next` — ссылка на следующий узел (или `nullptr`)
+
+- какую информацию должен хранить каждый узел двусвязного списка?
+
+---
+
+# Связные списки
+
+## Двусвязный список — базовый узел
+
+```C++
+struct Node {
+    int value = 0;
+    Node* next = nullptr;
+    Node* prev = nullptr;
+    Node(int v) : value(v) {}
+};
+```
+
+![Двусвязный список](/resources/images/twiceSpisok.png){width=400px}
+
+---
+
+# Связные списки
+
+## Вставка (insertAfter)
+
+* Добавление элемента `thatElement` после `thisElement`
+
+. . .
+
+```C++
+void insertAfter(Node* thisElement, Node* thatElement) {
+    if (!thisElement) return;
+    thatElement->next = thisElement->next;
+    thisElement->next = thatElement;
+}
+```
+
+* Для вставки в голову: менять `head` (см. removeHead/insertHead)
+
+![Вставка после](/resources/images/insertAfter.png){width=490px}
+
+---
+
+# Связные списки
+
+## Поиск (search)
+
+* Идём от головы, сравниваем значения:
+
+```C++
+Node* search(Node* head, int value) {
+    Node* node = head;
+    while (node != nullptr && node->value != value) {
+        node = node->next;
+    }
+    return node; // nullptr если не найден
+}
+```
+
+* Сложность: $O(n)$
+
+---
+
+# Связные списки
+
+## Удаление головы (removeHead)
+
+```C++
+void removeHead(Node*& head) {
+    if (head != nullptr) {
+        Node* tmp = head;
+        head = head->next;
+        delete tmp;
+    }
+}
+```
+
+* При удалении обязательно `delete` — иначе утечка памяти
+
+![Удаление головы](/resources/images/removeHead.png){width=430px}
+
+---
+
+# Связные списки
+
+## Удаление после элемента (removeAfter)
+
+```C++
+void removeAfter(Node* thisElement) {
+    if (thisElement == nullptr || thisElement->next == nullptr) return;
+    Node* tmp = thisElement->next;
+    thisElement->next = tmp->next;
+    delete tmp;
+}
+```
+
+* Не забывать про `nullptr`-проверки
+
+![Удаление после](/resources/images/removeAfter.png){width=550px}
+
+---
+
+# Связные списки
+
+## Двусвязный список — узел
+
+```C++
+struct DNode {
+    int value;
+    DNode* prev;
+    DNode* next;
+    DNode(int v) : value(v), prev(nullptr), next(nullptr) {}
+};
+```
+
+* Удобнее удалять и вставлять произвольно (есть `prev`)
+* Нужна аккуратная работа с краями списка
+
+
+---
+
+# Связные списки
+
+## Циклический список
+
+* В циклическом списке `last->next == head`
+* Полезно для круговых буферов и игр (круговой проход)
+* Нужно внимательно обрабатывать условия остановки при обходе
+
+![Циклический список](/resources/images/circleSpisok.png){width=450px}
+
+---
+
+# Связные списки
+
+## Поиск цикла: алгоритм Флойда (tortoise & hare)
+
+[Обнаружение цикла](https://algo25.dfbakin.com/resources/images/tortoise_hare_part1.gif)
+
+<!-- ```C++
+bool hasCycle(Node* head) {
+    Node* tortoise = head;
+    Node* hare = head;
+    while (true) {
+        if (hare == nullptr || hare->next == nullptr) return false;
+        tortoise = tortoise->next;
+        hare = hare->next->next;
+        if (tortoise == hare) return true;
+    }
+}
+``` -->
+
+* Если встретились — есть цикл; если `hare` дошёл до конца — цикла нет
+* Сложность: $O(n)$, память: $O(1)$
+
+---
+
+# Связные списки
+
+## Поиск начала цикла: алгоритм Флойда (tortoise & hare)
+
+[Поиск начала цикла](https://algo25.dfbakin.com/resources/images/tortoise_hare_part2.gif)
+
+- работает за $O(n)$, как только мы разметили точку на цикле
+- точка встречи `pointMeeting` найдена алгоритмом Флойда
+- запустить один указатель из `head`, другой — из `pointMeeting`, двигать оба на 1 — точка их встречи = начало цикла
+
+---
+
+# Связные списки
+
+## Разворот списка — итеративный метод
+
+```C++
+Node* reverseIterative(Node* head) {
+    Node* prev = nullptr;
+    Node* curr = head;
+    while (curr != nullptr) {
+        Node* next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev; // новая голова
+}
+```
+
+* Без рекурсии, память $O(1)$
+* Сложность: $O(n)$
+
+---
+
+# Связные списки
+
+## Практические советы и ошибки
+
+* Всегда проверять `nullptr` перед доступом к `->next`
+* Не забывать вызывать `delete` для удалённых узлов — чтобы избежать утечек
+* Быть осторожным с двойным удалением (double free)
+
+---
+
+# Связные списки
+
+* Связные списки — гибкая структура для динамического хранения и манипуляций
+* Односвязный проще, двусвязный удобнее для операций удаления/вставки в середине
+* Алгоритмы: вставка/удаление/поиск — $O(n)$; разворот — $O(n)$; поиск цикла — $O(n)$
