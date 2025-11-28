@@ -47,34 +47,22 @@
   description: Динамическая память, основы ООП, связные списки
   presentation: /lectures/oop_linked_lists/presentation.pdf
 
-- title: TBA
+- title: Сортировка событий
   number: 9
-
-- title: TBA
-  number: 10
-
-# - title: Сортировка событий
-#   number: 9
-#   description: Сортировка событий, задачи на обработку событий
-
-# - title: Указатели, ссылки, структуры
-#   number: 11
-#   description: Указатели, ссылки, структуры данных в C++
-
-# - title: Связные списки
-#   number: 12
-#   description: Односвязные и двусвязные списки
+  description: Сортировка событий, задачи на обработку событий
+  material: /lectures/scanline/notes.html
+  presentation: /lectures/scanline/presentation.pdf
 
 - title: Графы. Обход в глубину
-  number: 11
+  number: 10
   description: Проверка на связность, подсчет компонент связности, проверка на цикличность, двураскрашиваемость
 
 - title: Обход в ширину
-  number: 12
+  number: 11
   description: BFS, применение обхода в ширину
 
 - title: Мосты, точки сочленения. Замыкание графа
-  number: 13
+  number: 12
   description: Поиск мостов, точек сочленения, замыкание графа
 
 - title: Контрольная работа 2
