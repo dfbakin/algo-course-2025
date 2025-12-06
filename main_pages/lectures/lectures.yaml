@@ -37,6 +37,12 @@
   - text: Практическая часть
     href: https://official.contest.yandex.ru/contest/83881/enter/
 
+- title: Резерв контрольноый работы 1
+  practice:
+  - text: Практическая часть
+    href: https://official.contest.yandex.ru/contest/86661/enter/
+
+
 - title: Указатели, ссылки. Стек и очередь
   number: 7
   description: Указатели, ссылки, структуры данных в C++
