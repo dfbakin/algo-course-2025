@@ -59,6 +59,11 @@
   material: /lectures/scanline/notes.html
   presentation: /lectures/scanline/presentation.pdf
 
+- title: Контрольная работа 2
+  practice:
+  - text: Практическая часть
+    href: https://official.contest.yandex.ru/contest/87182/enter/
+
 - title: Графы. Обход в глубину
   number: 10
   description: Проверка на связность, подсчет компонент связности, проверка на цикличность, двураскрашиваемость
@@ -70,6 +75,3 @@
 - title: Мосты, точки сочленения. Замыкание графа
   number: 12
   description: Поиск мостов, точек сочленения, замыкание графа
-
-- title: Контрольная работа 2
-  description: Контрольная работа по темам графов и структур данных
