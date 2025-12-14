@@ -67,10 +67,12 @@
 - title: Графы. Обход в глубину
   number: 10
   description: Проверка на связность, подсчет компонент связности, проверка на цикличность, двураскрашиваемость
+  material: /lectures/dfs/notes.html
 
 - title: Обход в ширину
   number: 11
   description: BFS, применение обхода в ширину
+  material: /lectures/bfs/notes.html
 
 - title: Мосты, точки сочленения. Замыкание графа
   number: 12
