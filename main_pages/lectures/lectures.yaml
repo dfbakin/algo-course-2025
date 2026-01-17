@@ -68,6 +68,7 @@
   number: 10
   description: Проверка на связность, подсчет компонент связности, проверка на цикличность, двураскрашиваемость
   material: /lectures/dfs/notes.html
+  presentation: /lectures/dfs/presentation.pdf
 
 - title: Обход в ширину
   number: 11
