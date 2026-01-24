@@ -174,7 +174,13 @@ std::vector<std::vector<int>> adj(n);
 std::vector<Color> color(n, WHITE);
 std::vector<int> parent(n, -1);
 int cycle_start = -1, cycle_end = -1;
+```
 
+---
+
+# Поиск цикла: реализация
+
+```cpp
 bool dfs(int v) {
     color[v] = GRAY;
     for (int u : adj[v]) {
