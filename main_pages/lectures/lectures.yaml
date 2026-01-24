@@ -70,11 +70,17 @@
   material: /lectures/dfs/notes.html
   presentation: /lectures/dfs/presentation.pdf
 
-- title: Обход в ширину
+- title: "Обход в глубину: применения"
   number: 11
+  description: Проверка на связность, подсчет компонент связности, проверка на цикличность, двураскрашиваемость
+  # material: /lectures/dfs_applications/notes.html
+  presentation: /lectures/dfs_applications/presentation.pdf
+
+- title: Обход в ширину
+  number: 12
   description: BFS, применение обхода в ширину
   material: /lectures/bfs/notes.html
 
 - title: Мосты, точки сочленения. Замыкание графа
-  number: 12
+  number: 13
   description: Поиск мостов, точек сочленения, замыкание графа
