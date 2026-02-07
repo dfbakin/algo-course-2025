@@ -80,7 +80,8 @@
   number: 12
   description: BFS, применение обхода в ширину
   material: /lectures/bfs/notes.html
+  presentation: /lectures/bfs/presentation.pdf
 
-- title: Мосты, точки сочленения. Замыкание графа
-  number: 13
-  description: Поиск мостов, точек сочленения, замыкание графа
+# - title: Мосты, точки сочленения. Замыкание графа
+#   number: 13
+#   description: Поиск мостов, точек сочленения, замыкание графа
