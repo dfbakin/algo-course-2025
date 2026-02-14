@@ -1,8 +1,4 @@
-Here is the updated README.md with the description of your C++ course:
-
 ## Algo Course 2025
-
-TODO
 
 ### Course Structure
 
