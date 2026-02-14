@@ -82,6 +82,8 @@
   material: /lectures/bfs/notes.html
   presentation: /lectures/bfs/presentation.pdf
 
-# - title: Мосты, точки сочленения. Замыкание графа
-#   number: 13
-#   description: Поиск мостов, точек сочленения, замыкание графа
+- title: Мосты, точки сочленения. Конденсация графа
+  number: 13
+  description: Поиск мостов, точек сочленения, конденсация
+  material: /lectures/bridges_condensation/notes.html
+  presentation: /lectures/bridges_condensation/presentation.pdf
