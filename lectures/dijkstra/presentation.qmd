@@ -69,7 +69,7 @@ lang: ru
 
 # Пошаговый пример
 
-![](/resources/images/image.png)
+![](/images/image.png)
 
 ---
 
@@ -99,7 +99,7 @@ lang: ru
 
 **Шаг:** рассмотрим кратчайший путь до выбранной вершины $v$
 
-![](/resources/images/image_1.png)
+![](/images/image_1.png)
 
 ---
 
