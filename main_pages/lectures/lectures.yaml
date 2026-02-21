@@ -87,3 +87,9 @@
   description: Поиск мостов, точек сочленения, конденсация
   material: /lectures/bridges_condensation/notes.html
   presentation: /lectures/bridges_condensation/presentation.pdf
+
+- title: Алгоритм Дейкстры
+  number: 14
+  description: Алгоритм Дейкстры
+  material: /lectures/dijkstra/notes.html
+  presentation: /lectures/dijkstra/presentation.pdf
