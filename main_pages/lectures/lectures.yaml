@@ -93,3 +93,9 @@
   description: Алгоритм Дейкстры
   material: /lectures/dijkstra/notes.html
   presentation: /lectures/dijkstra/presentation.pdf
+
+- title: Алгоритмы Флойда-Уоршелла и Форда-Беллмана
+  number: 15
+  description: Алгоритмы Флойда-Уоршелла и Форда-Беллмана
+  material: /lectures/floyd_ford/notes.html
+  presentation: /lectures/floyd_ford/presentation.pdf
