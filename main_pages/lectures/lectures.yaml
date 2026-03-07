@@ -99,3 +99,9 @@
   description: Алгоритмы Флойда-Уоршелла и Форда-Беллмана
   material: /lectures/floyd_ford/notes.html
   presentation: /lectures/floyd_ford/presentation.pdf
+
+- title: Минимальное остовное дерево
+  number: 16
+  description: Минимальное остовное дерево, алгоритм Прима
+  material: /lectures/mst/notes.html
+  presentation: /lectures/mst/presentation.pdf
