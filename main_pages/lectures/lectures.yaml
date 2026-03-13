@@ -105,3 +105,9 @@
   description: Минимальное остовное дерево, алгоритм Прима
   material: /lectures/mst/notes.html
   presentation: /lectures/mst/presentation.pdf
+
+- title: Куча
+  number: 17
+  description: Куча
+  material: /lectures/heap/notes.html
+  presentation: /lectures/heap/presentation.pdf
