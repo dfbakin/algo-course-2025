@@ -1,0 +1,215 @@
+---
+title: "Применения DFS"
+format:
+  html:
+    math: true
+    page-layout: full
+---
+
+# Компоненты связности
+
+**Компонента связности** — максимальное по включению множество вершин, в котором из любой вершины можно добраться до любой другой по рёбрам графа.
+
+## Алгоритм
+
+1. Перебираем все вершины от $0$ до $n-1$
+2. Если вершина ещё не посещена — запускаем из неё DFS
+3. Все вершины, достигнутые этим DFS, образуют одну компоненту
+4. Увеличиваем счётчик компонент
+
+```cpp
+std::vector<std::vector<int>> adj(n);
+std::vector<int> component(n, -1);
+int num_components = 0;
+
+void dfs(int v, int comp) {
+    component[v] = comp;
+    for (int u : adj[v]) {
+        if (component[u] == -1) {
+            dfs(u, comp);
+        }
+    }
+}
+
+void find_components() {
+    for (int v = 0; v < n; ++v) {
+        if (component[v] == -1) {
+            dfs(v, num_components);
+            ++num_components;
+        }
+    }
+}
+```
+
+**Сложность:** $O(n + m)$
+
+---
+
+# Поиск цикла в ориентированном графе
+
+## Раскраска вершин
+
+Введём три состояния для каждой вершины:
+
+- **Белый (WHITE = 0)** — вершина не посещена
+- **Серый (GRAY = 1)** — вершина в процессе обработки (в стеке рекурсии)
+- **Чёрный (BLACK = 2)** — вершина полностью обработана
+
+## Классификация рёбер
+
+При обходе DFS каждое ребро $(u, v)$ относится к одному из типов:
+
+- **Tree edge** — $v$ белая — ребро дерева DFS
+- **Back edge** — $v$ серая — ребро в предка → **цикл!**
+- **Forward edge** — $v$ чёрная, $tin[u] < tin[v]$ — ребро в потомка
+- **Cross edge** — $v$ чёрная, $tin[u] > tin[v]$ — ребро "вбок"
+
+**Ключевое наблюдение:** цикл существует тогда и только тогда, когда есть back edge (ребро в серую вершину).
+
+## Реализация
+
+```cpp
+enum Color { WHITE = 0, GRAY = 1, BLACK = 2 };
+
+std::vector<std::vector<int>> adj(n);
+std::vector<Color> color(n, WHITE);
+std::vector<int> parent(n, -1);
+int cycle_start = -1, cycle_end = -1;
+
+bool dfs(int v) {
+    color[v] = GRAY;
+    for (int u : adj[v]) {
+        if (color[u] == GRAY) {
+            cycle_start = u;
+            cycle_end = v;
+            return true;
+        }
+        if (color[u] == WHITE) {
+            parent[u] = v;
+            if (dfs(u)) return true;
+        }
+    }
+    color[v] = BLACK;
+    return false;
+}
+
+bool has_cycle() {
+    for (int v = 0; v < n; ++v) {
+        if (color[v] == WHITE) {
+            if (dfs(v)) return true;
+        }
+    }
+    return false;
+}
+```
+
+## Восстановление цикла
+
+```cpp
+std::vector<int> get_cycle() {
+    std::vector<int> cycle;
+    int v = cycle_end;
+    while (v != cycle_start) {
+        cycle.push_back(v);
+        v = parent[v];
+    }
+    cycle.push_back(cycle_start);
+    std::reverse(cycle.begin(), cycle.end());
+    return cycle;
+}
+```
+
+**Сложность:** $O(n + m)$
+
+---
+
+# Двудольные графы
+
+## Определения
+
+**Раскраска графа** в $k$ цветов — это функция $c: V \to \{1, 2, \ldots, k\}$, такая что для любого ребра $(u, v) \in E$ выполняется $c(u) \neq c(v)$.
+
+**Хроматическое число** $\chi(G)$ — минимальное $k$, для которого существует раскраска в $k$ цветов.
+
+**Двудольный граф** (bipartite graph) — граф, вершины которого можно разбить на два множества $L$ и $R$ так, что все рёбра идут между $L$ и $R$.
+
+## Эквивалентные определения двудольности
+
+- Граф можно раскрасить в 2 цвета
+- $\chi(G) \leq 2$
+- Граф не содержит циклов нечётной длины
+
+## Сложность задачи раскраски
+
+- $k = 1$: тривиально (граф без рёбер)
+- $k = 2$: решается за $O(n + m)$
+- $k \geq 3$: **NP-полная задача**
+
+## Проверка двудольности
+
+```cpp
+std::vector<std::vector<int>> adj(n);
+std::vector<int> color(n, -1);
+
+bool dfs(int v, int c) {
+    color[v] = c;
+    for (int u : adj[v]) {
+        if (color[u] == -1) {
+            if (!dfs(u, 1 - c)) return false;
+        } else if (color[u] == c) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool is_bipartite() {
+    for (int v = 0; v < n; ++v) {
+        if (color[v] == -1) {
+            if (!dfs(v, 0)) return false;
+        }
+    }
+    return true;
+}
+```
+
+**Сложность:** $O(n + m)$
+
+---
+
+# Топологическая сортировка
+
+## Определение
+
+**Топологическая сортировка** ориентированного графа — это линейный порядок вершин $v_1, v_2, \ldots, v_n$ такой, что для каждого ребра $(v_i, v_j) \in E$ выполняется $i < j$.
+
+**Теорема:** Топологическая сортировка существует тогда и только тогда, когда граф ациклический (DAG).
+
+## Алгоритм через DFS
+
+При DFS вершина получает $tout$ только после обработки всех достижимых из неё вершин. Поэтому обратный порядок $tout$ даёт топологическую сортировку.
+
+```cpp
+std::vector<std::vector<int>> adj(n);
+std::vector<bool> visited(n, false);
+std::vector<int> order;
+
+void dfs(int v) {
+    visited[v] = true;
+    for (int u : adj[v]) {
+        if (!visited[u]) {
+            dfs(u);
+        }
+    }
+    order.push_back(v);
+}
+
+void topological_sort() {
+    for (int v = 0; v < n; ++v) {
+        if (!visited[v]) {
+            dfs(v);
+        }
+    }
+    std::reverse(order.begin(), order.end());
+}
+```

@@ -10,7 +10,7 @@
 
 - title: Основы C++. Функции
   number: 3
-  description: Функции
+  description: Объявление и вызов функций, передача аргументов по значению, ссылке и указателю, возвращаемые значения
   material: /lectures/functions/notes.html
   presentation: /lectures/functions/presentation.pdf
 
@@ -22,7 +22,7 @@
 
 - title: Рекурсия. Быстрые сортировки
   number: 5
-  description: Оптимальные сортировки на сравнениях. Сортировка подсчетом
+  description: Рекурсия, сортировка слиянием, быстрая сортировка, сортировка подсчётом
   material: /lectures/quick_sort/notes.html
   presentation: /lectures/quick_sort/presentation.pdf
 
@@ -45,17 +45,17 @@
 
 - title: Указатели, ссылки. Стек и очередь
   number: 7
-  description: Указатели, ссылки, структуры данных в C++
+  description: Модель памяти, указатели и разыменование, ссылки, стек и очередь
   presentation: /lectures/ref_ptr_stack_queue/presentation.pdf
 
 - title: Динамическая память. Основы ООП. Связные списки
   number: 8
-  description: Динамическая память, основы ООП, связные списки
+  description: Выделение и освобождение памяти (new/delete), классы и структуры, односвязные и двусвязные списки
   presentation: /lectures/oop_linked_lists/presentation.pdf
 
 - title: Сортировка событий
   number: 9
-  description: Сортировка событий, задачи на обработку событий
+  description: Лямбда-функции, пользовательские компараторы, метод сканирующей прямой (sweep line)
   material: /lectures/scanline/notes.html
   presentation: /lectures/scanline/presentation.pdf
 
@@ -66,19 +66,19 @@
 
 - title: Графы. Обход в глубину
   number: 10
-  description: Проверка на связность, подсчет компонент связности, проверка на цикличность, двураскрашиваемость
+  description: Представление графов в памяти, алгоритм обхода в глубину (DFS), время входа и выхода
   material: /lectures/dfs/notes.html
   presentation: /lectures/dfs/presentation.pdf
 
 - title: "Обход в глубину: применения"
   number: 11
-  description: Проверка на связность, подсчет компонент связности, проверка на цикличность, двураскрашиваемость
+  description: Компоненты связности, поиск цикла в ориентированном графе, классификация рёбер, проверка двудольности, топологическая сортировка
   # material: /lectures/dfs_applications/notes.html
   presentation: /lectures/dfs_applications/presentation.pdf
 
 - title: Обход в ширину
   number: 12
-  description: BFS, применение обхода в ширину
+  description: Алгоритм обхода в ширину (BFS), кратчайшие пути в невзвешенном графе, восстановление пути
   material: /lectures/bfs/notes.html
   presentation: /lectures/bfs/presentation.pdf
 
@@ -90,24 +90,30 @@
 
 - title: Алгоритм Дейкстры
   number: 14
-  description: Алгоритм Дейкстры
+  description: Кратчайшие пути от одной вершины в графе с неотрицательными весами, реализации за O(n²) и O(m log n), восстановление пути
   material: /lectures/dijkstra/notes.html
   presentation: /lectures/dijkstra/presentation.pdf
 
 - title: Алгоритмы Флойда-Уоршелла и Форда-Беллмана
   number: 15
-  description: Алгоритмы Флойда-Уоршелла и Форда-Беллмана
+  description: Кратчайшие пути между всеми парами вершин за O(n³), кратчайшие пути при отрицательных весах, обнаружение циклов отрицательного веса
   material: /lectures/floyd_ford/notes.html
   presentation: /lectures/floyd_ford/presentation.pdf
 
 - title: Минимальное остовное дерево
   number: 16
-  description: Минимальное остовное дерево, алгоритм Прима
+  description: Лемма о безопасном ребре, жадная стратегия построения MST, алгоритм Прима за O(n²) и O(m log n)
   material: /lectures/mst/notes.html
   presentation: /lectures/mst/presentation.pdf
 
 - title: Куча
   number: 17
-  description: Куча
+  description: Двоичная куча, хранение в массиве, sift_up и sift_down, построение кучи за O(n), priority_queue в STL
   material: /lectures/heap/notes.html
   presentation: /lectures/heap/presentation.pdf
+
+- title: Двоичное дерево поиска
+  number: 18
+  description: Поиск, вставка и удаление в BST, обходы дерева (inorder = сортированный порядок), сбалансированные деревья, std::set и std::map
+  material: /lectures/bst/notes.html
+  presentation: /lectures/bst/presentation.pdf
