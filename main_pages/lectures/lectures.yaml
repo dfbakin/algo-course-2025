@@ -117,3 +117,9 @@
   description: Поиск, вставка и удаление в BST, обходы дерева (inorder = сортированный порядок), сбалансированные деревья, std::set и std::map
   material: /lectures/bst/notes.html
   presentation: /lectures/bst/presentation.pdf
+
+- title: Дерево отрезков
+  number: 19
+  description: Построение, точечное обновление и запрос суммы на отрезке в дереве отрезков
+  material: /lectures/segment_tree/notes.html
+  presentation: /lectures/segment_tree/presentation.pdf
