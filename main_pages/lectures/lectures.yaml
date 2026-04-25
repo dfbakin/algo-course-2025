@@ -123,3 +123,9 @@
   description: Построение, точечное обновление и запрос суммы на отрезке в дереве отрезков
   material: /lectures/segment_tree/notes.html
   presentation: /lectures/segment_tree/presentation.pdf
+
+- title: Система непересекающихся множеств
+  number: 20
+  description: Устройство структуры, поиск лидера, оптимизации
+  material: /lectures/disjoint_sets/notes.html
+  presentation: /lectures/disjoint_sets/presentation.pdf
