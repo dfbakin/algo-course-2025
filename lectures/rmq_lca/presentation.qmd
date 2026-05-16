@@ -73,7 +73,7 @@ $$
 
 Любой полуинтервал $[l, r)$ можно покрыть **двумя** отрезками длины степени двойки
 
-![](/resources/images/rmq_segment_converage.png){width=70%}
+<!-- ![](/resources/images/rmq_segment_converage.png){width=70%} -->
 
 . . .
 
@@ -147,7 +147,7 @@ int Rmq(int l, int r) {  // [l, r)
 
 **LCA** (*least common ancestor*) — для двух вершин $u$, $v$ найти самую глубокую вершину, лежащую на пути от корня одновременно к $u$ и к $v$
 
-![](/resources/images/lca_root_tree.png){width=55%}
+<!-- ![](/resources/images/lca_root_tree.png){width=55%} -->
 
 ---
 
@@ -188,7 +188,7 @@ int Lca(int u, int v) {
 
 # Эйлеров обход
 
-![](/resources/images/lca_euler_tour.png){width=80%}
+<!-- ![](/resources/images/lca_euler_tour.png){width=80%} -->
 
 ---
 
