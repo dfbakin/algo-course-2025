@@ -129,3 +129,9 @@
   description: Устройство структуры, поиск лидера, оптимизации
   material: /lectures/disjoint_sets/notes.html
   presentation: /lectures/disjoint_sets/presentation.pdf
+
+- title: RMQ, LCA
+  number: 21
+  description: Разреженная таблица и LCA
+  material: /lectures/rmq_lca/notes.html
+  presentation: /lectures/rmq_lca/presentation.pdf
